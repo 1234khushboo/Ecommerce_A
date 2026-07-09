@@ -18,10 +18,11 @@ sns.set_style("whitegrid")
 # ---------------------------------------------------------
 # Data Load + Clean (Load Dataset)
 # ---------------------------------------------------------
-DATA_PATH = r"data.csv (1)\data.csv"
+DATA_PATH = "data.csv (1)/data.csv"
+
 @st.cache_data
 def load_data(path):
-    df = pd.read_csv(path,encoding="latin1")
+    df = pd.read_csv(path, encoding="latin1")
     df = df.dropna(subset=["Description"])
 
     df["IsCancelled"] = df["InvoiceNo"].astype(str).str.startswith("C")
